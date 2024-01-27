@@ -1,6 +1,6 @@
 import React,{useState,useRef,useEffect} from 'react'
 import { HiMenu } from 'react-icons/hi'
-import { AiFillCloseCircle } from 'react-icons/ai'
+import { XCircle } from 'lucide-react'
 import { Link,Route, Routes} from 'react-router-dom'
 import {Sidebar,UserProfile} from '../components'  
 import { userQuery } from '../utils/data'
@@ -29,7 +29,7 @@ import logo from '../assets/logo.png'
   scrollRef.current.scrollTo(0,0)
    },[])
   return (
-    <div className='flex bg-gray-50 md:flex-row flex-col h-full transaction-height duration-75 ease-out'>
+    <div className='flex bg-white md:flex-row flex-col h-full transaction-height duration-75 ease-out'>
       <div className='hidden md:flex h-screen flex-initial '>
         <Sidebar user={user && user} closeToggle={setToggleSidebar}/>
       </div>
@@ -40,17 +40,17 @@ import logo from '../assets/logo.png'
         onClick={()=>setToggleSidebar(true)}
         />
         <Link to="/">
-        <img src={logo} alt="logo" className=' w-20' />
+        <img src={logo} alt="logo" className='w-24' />
         </Link>
         <Link to={`user-profile/${user?._id}`}>
-        <img src={user?.image} alt="logo" className=' w-20 rounded-[20rem]' />
+        <img src={user?.image} alt="logo" className=' w-16 rounded-full' />
         </Link>
         </div>
         {toggleSidebar && (
         <div className='fixed w-4/5 bg-white h-screen overflow-y-auto shadow-md z-10 animate-slide-in'>
         
-        <div className=' absolute w-full justify-end items-center p-2 '>
-          <AiFillCloseCircle  fontSize={30} className='cursor-pointer' onClick={()=> setToggleSidebar(false)} />
+        <div className=' absolute w-full justify-end items-center px-3 pt-8 '>
+          <XCircle fontSize={30} className='cursor-pointer' onClick={()=> setToggleSidebar(false)} />
        <Sidebar user={user && user} closeToggle={setToggleSidebar}  />
         </div>
 

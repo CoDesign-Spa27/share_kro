@@ -9,7 +9,7 @@ const root = createRoot(document.getElementById('root'));
 
 root.render(
   <Router>
-    <GoogleOAuthProvider  clientId="256243008686-0pgcf44q03ncbm5o8ggcd2l7bh2d58bu.apps.googleusercontent.com">
+    <GoogleOAuthProvider  clientId={import.meta.env.VITE_GOOGLE_API_TOKEN}>
       <App />
     </GoogleOAuthProvider>
   </Router> 

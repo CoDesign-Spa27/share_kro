@@ -4,8 +4,10 @@
 
 body {
     font-family: 'Lato', sans-serif;
-}
+    @apply bg-white dark:bg-gray-800 text-black dark:text-white;
 
+    
+}
 .hide-scrollbar ::-webkit-scrollbar{
     display: none;
 }

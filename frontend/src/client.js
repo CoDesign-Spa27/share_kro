@@ -3,11 +3,11 @@ import imageUrlBuilder from '@sanity/image-url';
 
 export const client = createClient({
   
-    projectId:'9bvt7hjm',
+    projectId:import.meta.env.VITE_SANITY_PROJECT_ID,
     dataset: 'production',
     apiVersion:'2021-11-16',
     useCdn: true,
-    token:'skVNUTz2b08HX2knkLVLiB0uBIuA0kZP8PvxWrreEubHqGf8WpqEvvgaiPw2M5mBqjUuo8WaRKIyD8vEVdQ17blP0RUpB716JU1tMMGTpSHIvNEqj5YF9Aq9lCH5iE2IkIFjJrzjfE36q1pivOymaO4ZJLUMrwfrOF9vuggchcVc8uR6xKXL',
+    token:import.meta.env.VITE_SANITY_TOKEN,
 
 });
 

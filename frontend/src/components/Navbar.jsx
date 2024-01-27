@@ -13,13 +13,13 @@ const Navbar = ({searchTerm, setSearchTerm,user}) => {
       className='flex justify-start items-center w-full px-2 rounded-md bg-white border-none outline-none focus-within:shadow-sm '
       >
 
-         <IoMdSearch fontSize={21} className='ml-1' />
+         <IoMdSearch fontSize={21} color='#00afb9' className='mx-2' />
          <input type="text"
          onChange={(e)=>{setSearchTerm(e.target.value)}}
          placeholder='Search'
          value={searchTerm} 
          onFocus={()=>navigate('/search')}
-         className='p-2 w-full bg-white outline-none'
+         className='w-full py-2 border-b-2 border-[#00afb9] outline-none focus:border-[#00afb9]'
          />
       </div>
       <div className='flex gap-3'>

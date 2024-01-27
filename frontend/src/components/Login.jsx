@@ -9,7 +9,6 @@ import { client } from "../client";
 
 const Login = () => {
  const navigate=useNavigate();
-
   const responseGoogle = (response) => {
     //  console.table(response)
   const { credential } = response
