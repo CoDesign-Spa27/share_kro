@@ -36,7 +36,7 @@ import logo from '../assets/logo.png'
       <div className='flex md:hidden flex-row   gap-5'>
         <div className='p-2 w-full flex flex-row justify-between shadow-md items-center'>
 
-        <HiMenu fontSize={30} className='cursor-pointer'
+        <HiMenu fontSize={30} className='cursor-pointer text-black'
         onClick={()=>setToggleSidebar(true)}
         />
         <Link to="/">
