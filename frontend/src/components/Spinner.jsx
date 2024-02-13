@@ -8,7 +8,7 @@ const Spinner = ({message}) => {
   autoplay
   loop
   src={loader}
-  style={{ height: '300px', width: '300px' }}
+  style={{ height: '100px', width: '100px' }}
 >
  
 </Player>

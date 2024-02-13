@@ -7,6 +7,7 @@ import { userQuery } from '../utils/data'
 import Pins from './pins'
 import { client } from '../client'
 import logo from '../assets/logo.png'
+import { fetchUser } from '../utils/fetchUser'
 
  const Home = () => {
    const [toggleSidebar,setToggleSidebar]=useState(false)
@@ -14,7 +15,7 @@ import logo from '../assets/logo.png'
    const scrollRef=useRef(null);
 
 
-   const userInfo =localStorage.getItem('user')!== 'undefined' ? JSON.parse(localStorage.getItem('user')):localStorage.clear();
+   const userInfo = fetchUser();
    
    useEffect(()=>{
    const query = userQuery(userInfo?.azp);
@@ -36,7 +37,7 @@ import logo from '../assets/logo.png'
       <div className='flex md:hidden flex-row   gap-5'>
         <div className='p-2 w-full flex flex-row justify-between shadow-md items-center'>
 
-        <HiMenu fontSize={30} className='cursor-pointer text-black'
+        <HiMenu fontSize={30} className='cursor-pointer text-black '
         onClick={()=>setToggleSidebar(true)}
         />
         <Link to="/">

@@ -13,6 +13,7 @@ const categories=[
   {name:'Photography'  },
   {name:'Gaming'  },
   {name:'Coding'  },
+  {name:'God'     },
   {name:'Other'  }
 ]
 
