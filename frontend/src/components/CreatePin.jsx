@@ -1,6 +1,7 @@
 import React from 'react'
-
-const CreatePin = () => {
+import { AiOutlineCloudUpload } from 'react-icons/ai'
+ 
+const CreatePin = ({}) => {
   return (
     <div>
       CreatePin

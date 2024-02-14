@@ -13,24 +13,24 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
   const navigate = useNavigate();
   const user = fetchUser();
 
-  const alreadySaved = !!save?.filter(
-    (item) => item.postedBy._id === user.googleId
-  )?.length;
+  const alreadySaved = !!(save?.filter(
+    (item) => item.postedBy?._id === user.googleId
+  ))?.length;
 
-  const savePin = (_id) => {
+  const savePin = (id) => {
     if (!alreadySaved) {
       client
         .patch(id)
         .setIfMissing({ save: [] })
-        .insert("after", "save[-1]", [
+        .insert('after', 'save[-1]', [
           {
             _key: uuidv4(),
             userId: user.googleId,
             postedBy: {
               _type: "postedBy",
-              _ref: user.googleId,
-            },
-          },
+              _ref: user.googleId
+            }
+          }
         ])
         .commit()
         .then(() => {
@@ -82,7 +82,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                   type="button"
                   className="bg-[#00afb9] text-white
                  px-5  py-2 rounded-3xl my-2 font-bold 
-                opacity-65 hover:opacity-100 hover:shadow-md outline-none
+                opacity-80 hover:opacity-100 hover:shadow-md outline-none
                  "
                 >
                   {save?.length} Saved
@@ -96,7 +96,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                   type="button"
                   className="bg-[#00afb9] text-white
                 px-5  py-2 rounded-3xl my-2 font-bold 
-                opacity-65 hover:opacity-100 hover:shadow-md outline-none
+                opacity-80 hover:opacity-100 hover:shadow-md outline-none
                 "
                 >
                   Save
@@ -115,7 +115,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                   {destination.length>20 ? destination.slice(8,20):destination.slice(8)}
                 </a>
               )}
-              {postedBy?._id === user.googleId && (
+         {alreadySaved && (
                 <button
                 type="button"
                 onClick={(e) => {
@@ -124,7 +124,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                 }}
                 className="bg-[#00afb9] text-white
                 px-5  py-2 rounded-3xl my-2 font-bold 
-               opacity-65 hover:opacity-100 hover:shadow-md outline-none"
+               opacity-90 hover:opacity-100 hover:shadow-md outline-none"
                 >
                   <AiTwotoneDelete />
                 </button>
