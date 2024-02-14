@@ -30,7 +30,7 @@ const Feed = () => {
  })
    }
   },[categoryId])
-  if(loading) return <Spinner message="ruko zara sabar kro" />
+  if(loading) return <Spinner message="Getting Your Data" />
   return (
     <div>
       {pins && <MasonryLayout  pins={pins}/>}
