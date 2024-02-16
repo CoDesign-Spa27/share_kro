@@ -14,6 +14,7 @@ const categories=[
   {name:'Gaming'  },
   {name:'Coding'  },
   {name:'God'     },
+  {name:'Nature'     },
   {name:'Other'  }
 ]
 
