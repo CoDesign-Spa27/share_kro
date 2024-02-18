@@ -168,7 +168,7 @@ const navigate =useNavigate();
                    onClick={savePin}
                    className='bg-[#00afb9] text-white font-bold p-2 rounded-full w-28 outline-none'
                    >
-                    Save Pin
+                    Upload Pin
                    </button>
              </div>
          </div>
