@@ -25,7 +25,7 @@ const {theme} = useTheme();
          placeholder='Search'
          value={searchTerm} 
          onFocus={()=>navigate('/search')}
-         className='w-full py-2 mx-2 rounded-full text-center border-b-2 border-[#00afb9] outline-none focus:border-[#00afb9]'
+         className='w-full sm:py-2 py-1 mx-2 rounded-full text-center border-b-2 border-[#00afb9] outline-none focus:border-[#00afb9]'
          />
          <DarkMode/>
       </div>
@@ -37,7 +37,7 @@ const {theme} = useTheme();
   
    </Link>
     
-     <Link to="create-pin" className='  rounded-lg w-12 h-12 md:w-14 md-h-12 flex justify-center items-center'>
+     <Link to="create-pin" className='  rounded-lg px-1 text-2xl   flex justify-center items-center'>
       
   <IoMdAdd />
    </Link>

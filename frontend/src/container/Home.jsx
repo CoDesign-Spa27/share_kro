@@ -6,8 +6,11 @@ import {Sidebar,UserProfile} from '../components'
 import { userQuery } from '../utils/data'
 import Pins from './pins'
 import { client } from '../client'
-import logo from '../assets/logo.png'
+ 
 import { fetchUser } from '../utils/fetchUser'
+import  Darklogo from "../assets/dark-logo.png";
+import  Lightlogo from "../assets/logo.png";
+import { getThemeLogo } from '../helpers/getThemeLogo'
 
 import { useTheme } from '../contexts/ThemeContext';
  
@@ -15,6 +18,9 @@ import { useTheme } from '../contexts/ThemeContext';
 
  const Home = () => {
   const {theme} = useTheme();
+
+  const logoSrc = getThemeLogo(Lightlogo,Darklogo, theme);
+
 
    const [toggleSidebar,setToggleSidebar]=useState(false)
    const [ user,setUser] =useState(null)
@@ -37,7 +43,7 @@ import { useTheme } from '../contexts/ThemeContext';
    },[])
   return (
     <div className='flex md:flex-row flex-col h-full transaction-height duration-75 ease-out'
-    style={{ color: theme === 'light' ? 'black' : 'white' }}
+    style={{ color: theme === 'light' ? 'black' : 'white'}}
     >
       <div className='hidden md:flex h-screen flex-initial '>
         <Sidebar user={user && user} closeToggle={setToggleSidebar}/>
@@ -49,14 +55,14 @@ import { useTheme } from '../contexts/ThemeContext';
         onClick={()=>setToggleSidebar(true)}
         />
         <Link to="/">
-        <img src={logo} alt="logo" className='w-24' />
+        <img src={logoSrc} alt="logo" className='w-24' />
         </Link>
         <Link to={`user-profile/${user?._id}`}>
         <img src={user?.image} alt="logo" className=' w-16 rounded-full' />
         </Link>
         </div>
         {toggleSidebar && (
-        <div className='fixed w-4/5   h-screen overflow-y-auto shadow-md z-10 animate-slide-in'>
+        <div className="fixed w-4/5  bg-[#1D232A]  h-screen overflow-y-auto shadow-md z-10 animate-slide-in">
         
         <div className=' absolute w-full justify-end items-center px-3 pt-8 '>
           <XCircle fontSize={30} className='cursor-pointer' onClick={()=> setToggleSidebar(false)} />

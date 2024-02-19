@@ -10,8 +10,8 @@ import { getThemeLogo } from '../helpers/getThemeLogo'
 import { useTheme } from "../contexts/ThemeContext";
 
 
-const isNotActiveStyle = 'flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize'
-const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 border-black transition-all duration-200 ease-in-out capitalize'
+const isNotActiveStyle = 'flex items-center px-5 gap-3 text-gray-500 hover:text-[#00afb9] transition-all duration-200 ease-in-out capitalize'
+const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 border-[#00afb9] transition-all duration-200 ease-in-out capitalize'
 
 const categories=[
   {name:'Animals'  },
@@ -37,7 +37,7 @@ const logoSrc = getThemeLogo(Lightlogo,Darklogo, theme);
   }
 
   return (
-    <div className='flex flex-col justify-between   h-full  min-w-210 hide-scrollbar'
+    <div className='flex flex-col justify-between  h-full  min-w-210 hide-scrollbar'
     style={{ color: theme === 'light' ? 'black' : 'white' }}
     
     >
