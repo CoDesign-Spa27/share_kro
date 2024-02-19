@@ -9,7 +9,13 @@ import { client } from '../client'
 import logo from '../assets/logo.png'
 import { fetchUser } from '../utils/fetchUser'
 
+import { useTheme } from '../contexts/ThemeContext';
+ 
+
+
  const Home = () => {
+  const {theme} = useTheme();
+
    const [toggleSidebar,setToggleSidebar]=useState(false)
    const [ user,setUser] =useState(null)
    const scrollRef=useRef(null);
@@ -30,14 +36,16 @@ import { fetchUser } from '../utils/fetchUser'
   scrollRef.current.scrollTo(0,0)
    },[])
   return (
-    <div className='flex bg-white md:flex-row flex-col h-full transaction-height duration-75 ease-out'>
+    <div className='flex md:flex-row flex-col h-full transaction-height duration-75 ease-out'
+    style={{ color: theme === 'light' ? 'black' : 'white' }}
+    >
       <div className='hidden md:flex h-screen flex-initial '>
         <Sidebar user={user && user} closeToggle={setToggleSidebar}/>
       </div>
       <div className='flex md:hidden flex-row   gap-5'>
         <div className='p-2 w-full flex flex-row justify-between shadow-md items-center'>
 
-        <HiMenu fontSize={30} className='cursor-pointer text-black '
+        <HiMenu fontSize={30} className='cursor-pointer  '
         onClick={()=>setToggleSidebar(true)}
         />
         <Link to="/">
@@ -48,7 +56,7 @@ import { fetchUser } from '../utils/fetchUser'
         </Link>
         </div>
         {toggleSidebar && (
-        <div className='fixed w-4/5 bg-white h-screen overflow-y-auto shadow-md z-10 animate-slide-in'>
+        <div className='fixed w-4/5   h-screen overflow-y-auto shadow-md z-10 animate-slide-in'>
         
         <div className=' absolute w-full justify-end items-center px-3 pt-8 '>
           <XCircle fontSize={30} className='cursor-pointer' onClick={()=> setToggleSidebar(false)} />

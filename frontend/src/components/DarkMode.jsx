@@ -9,7 +9,7 @@ const DarkMode = () => {
   }, [theme]);
   return (
     <div>
-       <label className="swap p-5 swap-rotate">
+       <label className="swap p-1 swap-rotate">
         <input
           type="checkbox"
           onChange={toggleTheme}

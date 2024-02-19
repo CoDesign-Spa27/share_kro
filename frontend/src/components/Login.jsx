@@ -46,7 +46,8 @@ const logoSrc = getThemeLogo(Lightlogo,Darklogo, theme);
     <>
     
      <div className="h-screen " style={{ color: theme === 'light' ? 'black' : 'white' }}>
-      <DarkMode />
+      
+      <DarkMode  />
      <h1 className="text-center  text-2xl md:text-3xl lg:text-5xl py-10 font-black   
        leading-tight">Share  <span className="text-[#00afb9] shadow-2xl bg-white py-2 px-4 rounded-2xl">Kro</span></h1>
       <h1 className="text-center  text-2xl md:text-3xl lg:text-5xl py-10 font-black  

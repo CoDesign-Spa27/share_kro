@@ -3,6 +3,8 @@ import { MdDownloadForOffline } from "react-icons/md";
 import { Link, useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { client, urlFor } from "../client";
+ 
+import { useTheme } from "../contexts/ThemeContext";
 
 import MasonryLayout from "./MasonryLayout";
 
@@ -10,6 +12,8 @@ import { pinDetailMorePinQuery, pinDetailQuery } from "../utils/data";
 import Spinner from "./Spinner";
 
 const PinDetails = ({ user }) => {
+  const {theme}=useTheme()
+
   const [pins, setPins] = useState(null);
   const [pinDetail, setPinDetail] = useState(null);
   const [comment, setComment] = useState("");
@@ -61,8 +65,10 @@ const PinDetails = ({ user }) => {
   return (
     <>
     <div
-      className="flex  xl-flex-row  flex-col m-auto bg-white"
-      style={{ maxWidth: "1200px", borderRadius: "32px" }}
+      className="flex  xl-flex-row  flex-col m-auto  "
+      style={{ maxWidth: "1200px", borderRadius: "32px" ,color: theme === 'light' ? 'black' : 'white' }}
+  
+
     >
       <div className="flex justify-center items-center md:items-start flex-initial ">
         <img
@@ -78,13 +84,13 @@ const PinDetails = ({ user }) => {
               href={`${pinDetail?.asset?.url}?dl=`}
               download
               onClick={(e) => e.stopPropagation()}
-              className="bg-white w-9 h-9 rounded-full flex items-center my-2 justify-center text-black text-3xl opacity-75 hover:opacity-100 hover:shadow-md outline-none "
+              className="  w-9 h-9 rounded-full flex items-center my-2 justify-center  text-3xl opacity-75 hover:opacity-100 hover:shadow-md outline-none "
             >
               <MdDownloadForOffline />
             </a>
          
           <a href={pinDetail.destination} 
-             className=" bg-[#00afb9] flex items-center gap-2 text-black font-bold p-2 pl-4 pr-4 rounded-full opacity-90 hover:opacity-100 hover:shadow-lg "
+             className=" bg-[#00afb9] flex items-center gap-2   font-bold p-2 pl-4 pr-4 rounded-full opacity-90 hover:opacity-100 hover:shadow-lg "
           target="_blank" rel="noreffer">
        Image Link
           </a>
@@ -99,7 +105,7 @@ const PinDetails = ({ user }) => {
         {/* //fetching user image and name which tells  which user is uploaded the image */}
         <Link
           to={`user-profile/${pinDetail.postedBy?._id}`}
-          className="flex gap-2 mt-5 items-center bg-white rounded-lg"
+          className="flex gap-2 mt-5 items-center   rounded-lg"
         >
           <img
             className="w-8 h-8 rounded-full object-cover"
@@ -112,10 +118,10 @@ const PinDetails = ({ user }) => {
         </Link>
 
 
-        <h2 className="mt-5 text-2xl">Comments<hr className="h-px bg-gray-200 border-0 dark:bg-gray-700"></hr></h2>
+        <h2 className="mt-5 text-2xl">Comments<hr className="h-px   border-0 dark:bg-gray-700"></hr></h2>
         <div className="max-h-370 overflow-y-auto">
           {pinDetail?.comments?.map((comment)=>(
-            <div className="flex gap-2 mt-5 rounded-l-full items-center bg-secondaryColor rounded-lg">
+            <div className="flex gap-2 mt-5 rounded-l-full items-center   rounded-lg">
               <img
               src={comment.postedBy.image}
               alt="user-profile"

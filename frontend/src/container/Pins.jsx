@@ -1,12 +1,18 @@
 import React,{ useState} from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { Navbar,Feed,PinDetails,CreatePin,Search} from '../components/index'
+
+import { useTheme } from '../contexts/ThemeContext';
+ 
 const Pins = ({user}) => {
+  const { theme }=useTheme()
   const [searchTerm,setSearchTerm]=useState('')
   return (
-    <div className='px-2 md:px-5'> 
+    <div className='px-2 md:px-5'
+    style={{ color: theme === 'light' ? 'black' : 'white' }}
+    > 
        <div
-       className='bg-gray-50'>
+        >
        <Navbar
        user={user}
        searchTerm={searchTerm}
