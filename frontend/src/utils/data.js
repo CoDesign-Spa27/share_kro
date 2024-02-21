@@ -12,7 +12,8 @@ export const categories = [
       image: 'https://i.pinimg.com/236x/25/14/29/251429345940a47490cc3d47dfe0a8eb.jpg',
     },
     {
-      name:'god'
+      name:'god',
+      image:'https://i.pinimg.com/736x/77/9a/a2/779aa206f2d860cb79e3c0b2e5dfdbe6.jpg'
     },
     {
       name: 'wallpaper',

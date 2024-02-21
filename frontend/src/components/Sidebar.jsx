@@ -13,16 +13,7 @@ import { useTheme } from "../contexts/ThemeContext";
 const isNotActiveStyle = 'flex items-center px-5 gap-3 text-gray-500 hover:text-[#00afb9] transition-all duration-200 ease-in-out capitalize'
 const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 border-[#00afb9] transition-all duration-200 ease-in-out capitalize'
 
-const categories=[
-  {name:'Animals'  },
-  {name:'Wallpapers'  },
-  {name:'Photography'  },
-  {name:'Gaming'  },
-  {name:'Coding'  },
-  {name:'God'     },
-  {name:'Nature'     },
-  {name:'Other'  }
-]
+ import { categories } from'../utils/data';
 
  
 
@@ -67,6 +58,11 @@ const logoSrc = getThemeLogo(Lightlogo,Darklogo, theme);
    onClick={handleCloseSidebar}
    key={category.name}
     >
+    <img 
+    src={category.image}
+    className='w-8 h-8 rounded-full shadow-sm'
+    alt="Category"
+    />
     {category.name}
     </NavLink>
    ))}
