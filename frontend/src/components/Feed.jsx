@@ -1,5 +1,5 @@
 import React,{ useState, useEffect} from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { client } from '../client'
 import MasonryLayout from './MasonryLayout'
 import Spinner from './Spinner'
@@ -10,6 +10,7 @@ const Feed = () => {
   const [ pins,setPins]=useState(null)
   const { categoryId } =useParams();
 
+  const navigate=useNavigate();
   useEffect(()=>{
     setLoading(true)
    if(categoryId){
@@ -31,6 +32,15 @@ const Feed = () => {
    }
   },[categoryId])
   if(loading) return <Spinner message="Getting Your Data" />
+
+  if(!pins?.length)return <h2 className='text-center py-5' >No Pins Available.
+  <button className='bg-[#00afb9] mx-2 text-white font-bold p-2 rounded-full w-20 outline-none
+  '
+  onClick={()=>{
+    navigate('/create-pin')
+  }}
+  >Create</button>
+   </h2>
   return (
     <div>
       {pins && <MasonryLayout  pins={pins}/>}
