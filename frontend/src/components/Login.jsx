@@ -92,21 +92,8 @@ const Login = () => {
             </div>
 
             <GoogleLogin
- 
-              // clientId={REACT_APP_GOOGLE_API_TOKEN}
-              render={(renderProps) => (
-                <button
-                  type="button"
-                  className="bg-[#00afb9] "
-                  onClick={renderProps.onClick}
-                  disabled={renderProps.disabled}
-                >
-                  <FcGoogle className="mr-4" />
-                  Sign in with Google
-                </button>
-              )}
               onSuccess={responseGoogle}
-              onFailure={responseGoogle}
+              onError={responseGoogle}
               cookiePolicy="single_host_origin"
             />
           </div>
@@ -116,13 +103,13 @@ const Login = () => {
       
     <ul class="flex justify-center items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400  ">
         <li>
-            <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+            <a href="#" className="hover:underline me-4 md:me-6">Privacy Policy</a>
         </li>
         <li>
-            <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+            <a href="#" className="hover:underline me-4 md:me-6">Licensing</a>
         </li>
         <li>
-            <a href="#" class="hover:underline">Contact</a>
+            <a href="#" className="hover:underline">Contact</a>
         </li>
     </ul>
     </div>
