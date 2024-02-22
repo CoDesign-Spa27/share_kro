@@ -30,7 +30,7 @@ import { useTheme } from '../contexts/ThemeContext';
    const userInfo = fetchUser();
    
    useEffect(()=>{
-   const query = userQuery(userInfo?.azp);
+   const query = userQuery(userInfo?.sub);
   
    client.fetch(query).then((data)=>{
     setUser(data[0]);

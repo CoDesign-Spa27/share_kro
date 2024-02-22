@@ -23,13 +23,16 @@ const Login = () => {
     const stringToken = String(credential);
     const schemaResponse =
       typeof stringToken === "string" ? jwtDecode(stringToken) : null;
-    localStorage.setItem("user", JSON.stringify(schemaResponse));
+  
+    localStorage.setItem('user', JSON.stringify(schemaResponse));
+ 
 
     // Assuming you have a user object inside the credential, adjust accordingly
-    const { name, azp, picture } = schemaResponse;
-    const doc = {
-      _id: azp,
-      _type: "user",
+    const { name,sub, picture } = schemaResponse;
+    
+    let doc = {
+      _id:sub,
+      _type: 'user',
       username: name,
       image: picture,
     };

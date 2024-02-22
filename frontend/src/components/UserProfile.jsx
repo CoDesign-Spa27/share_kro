@@ -6,6 +6,8 @@ import { client } from '../client'
 import MasonryLayout from './MasonryLayout'
 import Spinner from './Spinner'
 import { MdLogout } from 'react-icons/md';
+import { useTheme } from '../contexts/ThemeContext';
+
 const randomImage='https://source.unsplash.com/1600x900/?nature,photography,technology'
 
 const activeBtnStyle='bg-[#00afb9] mx-2 text-white font-bold p-2 rounded-full w-20 outline-none'
@@ -13,6 +15,8 @@ const notActiveBtnStyle=' text-white mx-2 font-bold p-2 rounded-full w-20 outlin
 
 
 const UserProfile = () => {
+  const {theme} = useTheme();
+
   const [user,setUser]=useState(null)
   const [pins,setPins]=useState(null)
   const [text,setText]=useState('Created')
@@ -65,7 +69,9 @@ client.fetch(query).then((data)=>{
     return <Spinner message="Loading Profile" />
   }
   return (
-    <div className='relative pb-2 h-full justify-center items-center'>
+    <div className='relative pb-2 h-full justify-center items-center'
+    style={{ color: theme === 'light' ? 'black' : 'white'}}
+    >
       <div className='flex flex-col pb5'>
         <div className='relative flex flex-col mb-7'>
 
@@ -75,11 +81,11 @@ client.fetch(query).then((data)=>{
             alt="COver Photo" />
             <img 
             className='rounded-full w-20 -mt-10 shadow-xl object-cover'
-            src={user.image} alt="" />
+            src={user?.image} alt="" />
 
             <h1 
             className='font-bold text-3xl text-center mt-3'
-            >{user.username}
+            >{user?.username}
             </h1>
             <div
             className='absolute top-0 z-1 right-0 p-2 '
@@ -97,6 +103,8 @@ client.fetch(query).then((data)=>{
        className='text-center my-5'
        >
         <button type='button'
+        style={{ color: theme === 'light' ? 'black' : 'white'}}
+
         onClick={(e)=>{setText(e.target.textContent);
           setActiveBtn('created')
         }}
@@ -105,12 +113,16 @@ client.fetch(query).then((data)=>{
         > 
         Created
         </button>
-        <button type='button'
+        <button 
+        style={{ color: theme === 'light' ? 'black' : 'white'}}
+        type='button'
         onClick={(e)=>{setText(e.target.textContent)
         setActiveBtn('saved')}
     }
 
-        className={`${activeBtn === 'saved'?activeBtnStyle:notActiveBtnStyle}`}
+        className={`${activeBtn === 'saved'?activeBtnStyle:notActiveBtnStyle}`
+      
+      }
         > 
         Saved
         </button>
